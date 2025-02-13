@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.19 ; // This is the solidity version
+pragma solidity 0.8.18; // This is the solidity version
 
 contract SimpleStorge {
     // Basic Types: Boolean, uint, int, address, bytes
@@ -20,7 +20,7 @@ contract SimpleStorge {
     mapping (string => uint256) public nameToFavoriteNumber;
 
 
-    function store(uint256 _favoriteNumber) public {
+    function store(uint256 _favoriteNumber) public virtual{
         favoriteNumber = _favoriteNumber;
     }
 

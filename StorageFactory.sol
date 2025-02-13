@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Contracts can deploy other contracts. 
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.18;
 
 import "./SimpleStorage.sol";
 
@@ -11,13 +11,21 @@ contract StorageFactory {
           SimpleStorage SimpleStorgeContractVariable = new SimpleStorage();
           // SimpleStorage simpleStorage = new SimpleStorage();
           listOfSimpleStorageContracts.push(SimpleStorgeContractVariable);
-     }
+     } // This function creates a new Simple storage contract
 
      function sfStore(
           uint256 _simpleStorageIndex,
           uint256 _simpleStorageNumber
      ) public {
           // Address
-     }         
+          // ABI
+          // SimpleStorage(address(simpleStorageArray[_simpleStorageIndex])).store(_simpleStorageNumber);
+          listOfSimpleStorageContracts[_simpleStorageIndex].store(_simpleStorageNumber);
+     }  
+
+      function sfGet(uint256 _simpleStorageIndex) public view returns (uint256) {
+        // return SimpleStorage(address(simpleStorageArray[_simpleStorageIndex])).retrieve();
+        return listOfSimpleStorageContracts[_simpleStorageIndex].retrieve();
+     }
      
 }
